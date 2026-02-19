@@ -8,25 +8,25 @@ const categories = [
     name: "Femenino",
     km: "3 kilometros",
     genero: "Femenino",
-    link: "https://forms.gle/biqo62VL4MnvE2zK7",
+    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
   },
   {
     name: "Femenino",
     km: "5 kilometros",
     genero: "Femenino",
-    link: "https://forms.gle/yEBCrkqKWpJnaGW49",
+    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
   },
   {
     name: "Femenino",
     km: "10 kilometros",
     genero: "Femenino",
-    link: "https://forms.gle/QcHCNbHPtXF9f8jK7",
+    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
   },
   {
     name: "Hombres recreativo",
     km: "10 kilometros",
     genero: "Masculino",
-    link: "https://forms.gle/XRrgGXCNMxuXSo186",
+    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
   },
 ];
 
@@ -57,33 +57,78 @@ const Nobsa: React.FC = () => {
           <div className="mb-8">
             <h2
               style={{ fontFamily: "Betterlett" }}
-              className="text-6xl  text-feminine-purple mb-4 text-center"
+              className="text-6xl text-feminine-purple mb-8 text-center"
             >
               Categorías
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {categories.map((category, index) => (
-                <div
-                  key={index}
-                  className="bg-feminine-lightPink/30 p-6 rounded-xl shadow-md text-center"
-                >
-                  <h3 className="font-bold text-lg mb-2">{category.name}</h3>
-                  <p className="mb-1">
-                    📏 <strong>Distancia:</strong> {category.km}
-                  </p>
-                  <p className="mb-1">
-                  </p>
-                  <p className="mb-1">
-                    🚻 <strong>Género:</strong> {category.genero}
-                  </p>
-                  <a className="relative inline-block mt-2 bg-feminine-pink text-white font-semibold px-4 py-2 rounded-lg shadow transition opacity-50 cursor-not-allowed pointer-events-none overflow-hidden">
-                    Inscribirse
-                    <span className="absolute top-1/2 left-0 w-full bg-red-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
-                      Inscripciones cerradas
-                    </span>
-                  </a>
-                </div>
-              ))}
+
+            {/* 🔹 SECCIÓN MUJERES */}
+            <div className="mb-12">
+              <h3 className="text-3xl font-bold text-center mb-6 text-feminine-pink">
+                Mujeres
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {categories
+                  .filter((cat) => cat.genero === "Femenino")
+                  .map((category, index) => (
+                    <div
+                      key={index}
+                      className="bg-feminine-lightPink/20 p-8 rounded-xl shadow-md text-center"
+                    >
+                      <p className="text-4xl font-bold text-feminine-purple">
+                        {category.km}
+                      </p>
+                      <button title="">
+                        <a
+                          href={category.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-4 bg-feminine-pink hover:bg-feminine-purple text-white font-semibold px-6 py-3 rounded-lg shadow transition transform hover:scale-105"
+                        >
+                          Inscribirse
+                          {/* <span className="absolute top-1/2 left-0 w-full bg-red-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+                          Inscripciones cerradas
+                        </span> */}
+                        </a>
+                      </button>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* 🔹 SECCIÓN HOMBRES */}
+            <div>
+              <h3 className="text-3xl font-bold text-center mb-6 text-blue-600">
+                Hombres
+              </h3>
+
+              <div className="flex justify-center">
+                {categories
+                  .filter((cat) => cat.genero === "Masculino")
+                  .map((category, index) => (
+                    <div
+                      key={index}
+                      className="bg-blue-100 p-8 rounded-xl shadow-md text-center"
+                    >
+                      <p className="text-4xl font-bold text-blue-700">
+                        {category.km}
+                      </p>
+
+                      <a
+                        href={category.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-4 bg-feminine-lightPink2 hover:bg-feminine-purple text-white font-semibold px-6 py-3 rounded-lg shadow transition transform hover:scale-105"
+                      >
+                        Inscribirse
+                        {/* <span className="absolute top-1/2 left-0 w-full bg-red-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+                          Inscripciones cerradas
+                        </span> */}
+                      </a>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
 
