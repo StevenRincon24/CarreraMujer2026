@@ -65,14 +65,13 @@ const Nobsa: React.FC = () => {
               {categories.map((category, index) => (
                 <div
                   key={index}
-                  className="bg-feminine-lavender/30 p-6 rounded-xl shadow-md text-center"
+                  className="bg-feminine-lightPink/30 p-6 rounded-xl shadow-md text-center"
                 >
                   <h3 className="font-bold text-lg mb-2">{category.name}</h3>
                   <p className="mb-1">
                     📏 <strong>Distancia:</strong> {category.km}
                   </p>
                   <p className="mb-1">
-                    🔄 <strong>Vueltas:</strong> {category.vueltas}
                   </p>
                   <p className="mb-1">
                     🚻 <strong>Género:</strong> {category.genero}
