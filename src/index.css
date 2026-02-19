@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Maitland Script";
+    src: url("/src/fonts/Maitland Script.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Betterlett";
+    src: url("/src/fonts/Betterlett.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("/src/fonts/Avenir.ttc") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
