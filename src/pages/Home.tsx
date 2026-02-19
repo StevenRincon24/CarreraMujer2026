@@ -99,7 +99,7 @@ const Home: React.FC = () => {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-feminine-lightPink2 p-6 rounded-xl shadow-lg">
+              <div className="bg-feminine-lavender p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">🏁 Reglas Generales</h3>
                 <ul className="list-none pl-4 mt-2 text-gray-700">
                   <li>🏃‍♂️ La carrera termina cuando el atleta cruza la meta.</li>
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-feminine-purple/20 p-6 rounded-xl shadow-lg">
+              <div className="bg-feminine-pink/20 p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">
                   🚨 Reglas de Descalificación
                 </h3>
