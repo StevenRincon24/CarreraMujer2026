@@ -8,13 +8,13 @@ const categories = [
     name: "Femenino",
     km: "3 kilometros",
     genero: "Femenino",
-    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
+    link: "https://forms.gle/vpkFTUnpknL4eEYd8",
   },
   {
     name: "Femenino",
     km: "5 kilometros",
     genero: "Femenino",
-    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
+    link: "https://forms.gle/8WpvAcZb9x7chq3s8",
   },
   {
     name: "Femenino",
@@ -26,7 +26,7 @@ const categories = [
     name: "Hombres recreativo",
     km: "10 kilometros",
     genero: "Masculino",
-    link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
+    link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
   },
 ];
 
@@ -119,7 +119,7 @@ const Nobsa: React.FC = () => {
                         href={category.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-4 bg-feminine-lightPink2 hover:bg-feminine-purple text-white font-semibold px-6 py-3 rounded-lg shadow transition transform hover:scale-105"
+                        className="inline-block mt-4 bg-feminine-lightPink2 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow transition transform hover:scale-105"
                       >
                         Inscribirse
                         {/* <span className="absolute top-1/2 left-0 w-full bg-red-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
