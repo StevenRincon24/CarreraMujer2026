@@ -86,7 +86,7 @@ const Home: React.FC = () => {
   }, [galleryImages, selectedEdition]);
 
   useEffect(() => {
-    const targetDate = new Date("2026-03-08T00:00:00").getTime();
+    const targetDate = new Date("2026-03-14T00:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -99,11 +99,9 @@ const Home: React.FC = () => {
 
       const dias = Math.floor(difference / (1000 * 60 * 60 * 24));
       const horas = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
       );
-      const minutos = Math.floor(
-        (difference % (1000 * 60 * 60)) / (1000 * 60)
-      );
+      const minutos = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const segundos = Math.floor((difference % (1000 * 60)) / 1000);
 
       setTimeLeft({ dias, horas, minutos, segundos });
@@ -168,33 +166,36 @@ const Home: React.FC = () => {
                   </Button>
 
                   {/* CONTADOR */}
-          <div className="mt-12">
-            <h3 className="text-3xl text-feminine-purple font-bold mb-6">
-              ⏳ Cuenta regresiva al 8 de marzo
-            </h3>
+                  <div className="mt-12">
+                    <h3 className="text-2xl text-feminine-purple font-bold mb-6">
+                      🔥 "¡La cuenta regresiva de #MujeresQueTransforman inicia
+                      en...!"
+                    </h3>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
-              <div className="bg-gradient-to-br from-[#923094] to-[#4c3094] p-6 rounded-xl shadow-xl">
-                <p className="text-4xl font-bold">{timeLeft.dias}</p>
-                <span>Días</span>
-              </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
+                      <div className="bg-gradient-to-br from-[#923094] to-[#4c3094] p-6 rounded-xl shadow-xl">
+                        <p className="text-4xl font-bold">{timeLeft.dias}</p>
+                        <span>Días</span>
+                      </div>
 
-              <div className="bg-gradient-to-br from-[#e44697] to-[#923094] p-6 rounded-xl shadow-xl">
-                <p className="text-4xl font-bold">{timeLeft.horas}</p>
-                <span>Horas</span>
-              </div>
+                      <div className="bg-gradient-to-br from-[#e44697] to-[#923094] p-6 rounded-xl shadow-xl">
+                        <p className="text-4xl font-bold">{timeLeft.horas}</p>
+                        <span>Horas</span>
+                      </div>
 
-              <div className="bg-gradient-to-br from-[#3392d0] to-[#4c3094] p-6 rounded-xl shadow-xl">
-                <p className="text-4xl font-bold">{timeLeft.minutos}</p>
-                <span>Minutos</span>
-              </div>
+                      <div className="bg-gradient-to-br from-[#3392d0] to-[#4c3094] p-6 rounded-xl shadow-xl">
+                        <p className="text-4xl font-bold">{timeLeft.minutos}</p>
+                        <span>Minutos</span>
+                      </div>
 
-              <div className="bg-gradient-to-br from-[#f05d77] to-[#e44697] p-6 rounded-xl shadow-xl animate-pulse">
-                <p className="text-4xl font-bold">{timeLeft.segundos}</p>
-                <span>Segundos</span>
-              </div>
-            </div>
-          </div>
+                      <div className="bg-gradient-to-br from-[#f05d77] to-[#e44697] p-6 rounded-xl shadow-xl animate-pulse">
+                        <p className="text-4xl font-bold">
+                          {timeLeft.segundos}
+                        </p>
+                        <span>Segundos</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
