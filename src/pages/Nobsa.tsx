@@ -150,9 +150,7 @@ const Nobsa: React.FC = () => {
                       <p className="text-2xl font-bold text-feminine-purple leading-tight">
                         {category.name}
                       </p>
-                      <p className="text-lg text-gray-500 font-medium">
-                        {category.km}
-                      </p>
+                      
                     </div>
                   </div>
 
