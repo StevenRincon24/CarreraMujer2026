@@ -127,8 +127,15 @@ const Home: React.FC = () => {
             <div className="absolute -left-20 w-64 h-64 bg-feminine-pink/10 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-feminine-purple/10 rounded-full blur-3xl"></div>
 
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+            <div className="relative  p-8  max-w-4xl mx-auto">
               <div className="flex flex-col items-center">
+                <h2
+                    className="mb-10 text-5xl text-feminine-purple"
+                    style={{ fontFamily: "Betterlett" }}
+                  >
+                    ¡Únete a una experiencia inolvidable!
+                  </h2>
+
                 <div className="w-full max-w-md mx-auto">
                   <img
                     src="https://i.postimg.cc/jS5z9Q2b/Carrera.jpg"
@@ -138,13 +145,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="text-center mb-10">
-                  <h2
-                    className="text-5xl text-feminine-purple"
-                    style={{ fontFamily: "Betterlett" }}
-                  >
-                    ¡Únete a una experiencia inolvidable!
-                  </h2>
-
+                  
                   <p className="text-gray-700 mb-6 text-lg mt-5">
                     Gracias por ser parte de la III Carrera Atlética de la Mujer
                     Nobsa 2026 <b>#MujeresQueTransforman</b> <br />
@@ -202,7 +203,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Premiación */}
-          <div className="relative mt-5 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+          <div className="relative  p-8 md:p-12 max-w-4xl mx-auto mt-5">
             <div className="text-center">
               <h2
                 className="text-4xl text-feminine-purple"
@@ -217,7 +218,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Reglamentación */}
-          <div className="relative bg-white/80 mt-5 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+          <div className="relative mt-5 p-8 md:p-12 max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h2
                 className="text-5xl md:text-5xl  text-feminine-purple"
@@ -309,7 +310,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Historial */}
-          <div className="relative bg-white/80 mt-10 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 max-w-5xl mx-auto">
+          <div className="relative mt-10  rounded-3xl  p-8 md:p-12 max-w-5xl mx-auto">
             <h2
               className="text-4xl text-center text-feminine-purple mb-10"
               style={{ fontFamily: "Betterlett" }}
