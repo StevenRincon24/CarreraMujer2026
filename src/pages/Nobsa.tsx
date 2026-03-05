@@ -3,31 +3,32 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { ArrowLeft } from "lucide-react";
 
-// Agregamos el campo 'img' a las categorías
+// Agregamos el campo 'km' a hombres para el nuevo diseño de tarjeta
 const categories = [
   {
     name: "Femenino 3K",
     genero: "Femenino",
     link: "https://forms.gle/vpkFTUnpknL4eEYd8",
-    img: "https://i.postimg.cc/25yWQ4wC/Iconos_03.png" // Reemplazar con tus URLs
+    img: "https://i.postimg.cc/25yWQ4wC/Iconos_03.png",
   },
   {
     name: "Femenino 5K",
     genero: "Femenino",
     link: "https://forms.gle/8WpvAcZb9x7chq3s8",
-    img: "https://i.postimg.cc/8CcvRhHs/Iconos_04.png"
+    img: "https://i.postimg.cc/8CcvRhHs/Iconos_04.png",
   },
   {
     name: "Femenino 10K",
     genero: "Femenino",
     link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
-    img: "https://i.postimg.cc/zfvhCnjV/Iconos_05.png"
+    img: "https://i.postimg.cc/zfvhCnjV/Iconos_05.png",
   },
   {
     name: "Hombres recreativo",
+    km: "10 Kilómetros", // Añadimos los KM aquí
     genero: "Masculino",
     link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
-    img: "https://i.postimg.cc/zfvhCnjV/Iconos_05.png"
+    // Ya no necesitamos 'img' circular aquí, usaremos la imagen de la tarjeta
   },
   {
     name: "Kids",
@@ -50,34 +51,32 @@ const Nobsa: React.FC = () => {
   const hombres = categories.filter((cat) => cat.genero === "Masculino");
   const especiales = categories.filter((cat) => cat.genero === "Ambos generos");
 
-  // Componente reutilizable para el Círculo
-const CircularCategory = ({ cat }: { cat: typeof categories[0] }) => (
-  <div className="flex flex-col items-center">
-    <a
-      href={cat.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block"
-    >
-      <div className="relative w-48 h-48 md:w-56 md:h-56 transition-transform duration-300 group-hover:scale-110">
-        <img
-          src={cat.img}
-          alt={cat.name}
-          className="w-full h-full object-contain"
-        />
+  // Componente reutilizable para el Círculo (SOLO PARA MUJERES AHORA)
+  const CircularCategory = ({ cat }: { cat: (typeof categories)[0] }) => (
+    <div className="flex flex-col items-center">
+      <a
+        href={cat.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block"
+      >
+        <div className="relative w-48 h-48 md:w-56 md:h-56 transition-transform duration-300 group-hover:scale-110">
+          <img
+            src={cat.img}
+            alt={cat.name}
+            className="w-full h-full object-contain"
+          />
 
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 rounded-full">
-          <span className="text-white font-bold text-xl drop-shadow-md text-center px-2">
-            Inscríbete
-          </span>
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 rounded-full">
+            <span className="text-white font-bold text-xl drop-shadow-md text-center px-2">
+              Inscríbete
+            </span>
+          </div>
         </div>
-      </div>
-    </a>
-    <p className="mt-4 text-2xl font-bold text-feminine-purple" style={{ fontFamily: "SugoTrial" }}>
-      {cat.km}
-    </p>
-  </div>
-);
+      </a>
+      {/* Las mujeres no tienen 'km' en los datos, si quieres mostrarlo, añádelo a los datos */}
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fad785] via-[#e44697] to-[#4c3094] py-12">
@@ -98,50 +97,119 @@ const CircularCategory = ({ cat }: { cat: typeof categories[0] }) => (
             />
           </div>
 
-          <h2 style={{ fontFamily: "Betterlett" }} className="text-6xl text-feminine-purple mb-12 text-center">
+          <h2
+            style={{ fontFamily: "Betterlett" }}
+            className="text-6xl text-feminine-purple mb-12 text-center"
+          >
             Categorías
           </h2>
 
-          {/* SECCIÓN MUJERES (CIRCULARES) */}
+          {/* SECCIÓN MUJERES (Siguen siendo CIRCULARES) */}
           <div className="mb-16">
-            <h3 style={{ fontFamily: "SugoTrial" }} className="text-4xl font-bold text-center mb-10 text-feminine-pink">
+            <h3
+              style={{ fontFamily: "SugoTrial" }}
+              className="text-4xl font-bold text-center mb-10 text-feminine-pink"
+            >
               Mujeres
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
-              {mujeres.map((cat, i) => <CircularCategory key={i} cat={cat} />)}
+              {mujeres.map((cat, i) => (
+                <CircularCategory key={i} cat={cat} />
+              ))}
             </div>
           </div>
 
-          {/* SECCIÓN HOMBRES (CIRCULAR) */}
-          <div className="mb-16">
-            <h3 style={{ fontFamily: "SugoTrial" }} className="text-4xl font-bold text-center mb-10 text-feminine-purple">
+          {/* SECCIÓN HOMBRES */}
+          <div className="mb-10">
+            <h3
+              style={{ fontFamily: "SugoTrial" }}
+              className="text-4xl font-bold text-center mb-10 text-feminine-purple"
+            >
               Hombres (Recreativo)
             </h3>
-            <div className="flex justify-center">
-              {hombres.map((cat, i) => <CircularCategory key={i} cat={cat} />)}
+
+            <div className="flex justify-center w-full px-4">
+              {hombres.map((category, index) => (
+                <a
+                  key={index}
+                  href={category.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  /* Cambié max-w-sm por max-w-[280px] para que sea notablemente más pequeña */
+                  className="p-6 rounded-2xl shadow-lg text-center transition transform hover:scale-105 block bg-white border border-gray-100 max-w-[280px] w-full"
+                >
+                  <div className="flex flex-col items-center gap-4">
+                    <img
+                      src="https://i.postimg.cc/288m0TsZ/10k-Hombres.png"
+                      alt="Hombres 10K"
+                      /* Reducimos el tamaño de la imagen interna */
+                      className="w-full max-w-[150px] object-contain"
+                    />
+
+                    <div className="flex flex-col items-center">
+                      <p className="text-2xl font-bold text-feminine-purple leading-tight">
+                        {category.name}
+                      </p>
+                      <p className="text-lg text-gray-500 font-medium">
+                        {category.km}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5">
+                    <span className="inline-block bg-[#2563eb] text-white text-sm border-2 border-[#2563eb] px-6 py-1.5 rounded-lg font-semibold hover:bg-white hover:text-[#2563eb] transition-all shadow-sm">
+                      Inscríbete
+                    </span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
           {/* ESPECIALES (Mantienen su diseño original de tarjetas) */}
-          <div>
-            <h3 style={{ fontFamily: "SugoTrial" }} className="text-4xl font-bold text-center mb-8 text-feminine-pink">
+          <div className="mb-10">
+            <h3
+              style={{ fontFamily: "SugoTrial" }}
+              className="text-4xl font-bold text-center mb-8 text-feminine-pink"
+            >
               Categorías Especiales
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* Contenedor Flex para centrar y ajustar tamaño */}
+            <div className="flex flex-wrap justify-center gap-6 px-4">
               {especiales.map((category, index) => (
                 <a
                   key={index}
                   href={category.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-8 rounded-2xl shadow-xl text-center transition transform hover:scale-105 block
-                    ${category.name === "Kids" 
-                      ? "bg-gradient-to-r from-[#fad785] via-[#fdb556] to-[#f05d77] text-white"
-                      : "bg-gradient-to-r from-[#754e9f] to-[#372773] text-white"}`}
+                  className={`p-6 rounded-2xl shadow-lg text-center transition transform hover:scale-105 block w-full max-w-[280px]
+          ${
+            category.name === "Kids"
+              ? "bg-gradient-to-br from-[#fad785] via-[#fdb556] to-[#f05d77] text-white"
+              : "bg-gradient-to-br from-[#754e9f] to-[#372773] text-white"
+          }`}
                 >
-                  <p className="text-4xl font-bold">{category.name}</p>
-                  <p className="text-2xl mt-2">{category.km}</p>
-                  <span className="inline-block mt-4 border-2 border-white/50 px-4 py-1 rounded-lg">Clic para inscribirse</span>
+                  <div className="flex flex-col items-center gap-4">
+                    {/* Imagen de la Categoría */}
+                    <img
+                      src={
+                        category.name === "Kids"
+                          ? "https://i.postimg.cc/6QspbnVH/Kids-1-5K.png"
+                          : "https://i.postimg.cc/288m0TsZ/10k-Hombres.png"
+                      }
+                      alt={category.name}
+                      className="w-full max-w-[140px] h-32 object-contain"
+                    />
+
+                    
+                  </div>
+
+                  <div className="mt-5">
+                    <span className="inline-block border-2 border-white/50 bg-white/10 px-6 py-1.5 rounded-xl text-sm font-semibold hover:bg-white hover:text-current transition-all shadow-sm">
+                      Inscríbete
+                    </span>
+                  </div>
                 </a>
               ))}
             </div>
@@ -149,7 +217,10 @@ const CircularCategory = ({ cat }: { cat: typeof categories[0] }) => (
 
           {/* MAPA */}
           <div className="mt-20">
-            <h2 style={{ fontFamily: "Betterlett" }} className="text-5xl text-feminine-purple mb-6 text-center">
+            <h2
+              style={{ fontFamily: "Betterlett" }}
+              className="text-5xl text-feminine-purple mb-6 text-center"
+            >
               Mapa del Recorrido
             </h2>
             <div className="flex justify-center">
