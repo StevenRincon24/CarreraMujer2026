@@ -8,6 +8,13 @@ const Home: React.FC = () => {
   const [selectedEdition, setSelectedEdition] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [timeLeft, setTimeLeft] = useState({
+    dias: 0,
+    horas: 0,
+    minutos: 0,
+    segundos: 0,
+  });
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const galleryImages: Record<number, string[]> = {
     1: [
@@ -78,6 +85,33 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, [galleryImages, selectedEdition]);
 
+  useEffect(() => {
+    const targetDate = new Date("2026-03-08T00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        clearInterval(interval);
+        return;
+      }
+
+      const dias = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const horas = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutos = Math.floor(
+        (difference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const segundos = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeLeft({ dias, horas, minutos, segundos });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fbb04e]/50 via-[#e44697]/50 to-[#4c3094]/50">
       <div className="container mx-auto px-4 py-12">
@@ -132,6 +166,35 @@ const Home: React.FC = () => {
                   <Button className="mt-2" onClick={() => navigate("/nobsa")}>
                     Inscripciones
                   </Button>
+
+                  {/* CONTADOR */}
+          <div className="mt-12">
+            <h3 className="text-3xl text-feminine-purple font-bold mb-6">
+              ⏳ Cuenta regresiva al 8 de marzo
+            </h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
+              <div className="bg-gradient-to-br from-[#923094] to-[#4c3094] p-6 rounded-xl shadow-xl">
+                <p className="text-4xl font-bold">{timeLeft.dias}</p>
+                <span>Días</span>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#e44697] to-[#923094] p-6 rounded-xl shadow-xl">
+                <p className="text-4xl font-bold">{timeLeft.horas}</p>
+                <span>Horas</span>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#3392d0] to-[#4c3094] p-6 rounded-xl shadow-xl">
+                <p className="text-4xl font-bold">{timeLeft.minutos}</p>
+                <span>Minutos</span>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#f05d77] to-[#e44697] p-6 rounded-xl shadow-xl animate-pulse">
+                <p className="text-4xl font-bold">{timeLeft.segundos}</p>
+                <span>Segundos</span>
+              </div>
+            </div>
+          </div>
                 </div>
               </div>
             </div>
