@@ -150,7 +150,6 @@ const Nobsa: React.FC = () => {
                       <p className="text-2xl font-bold text-feminine-purple leading-tight">
                         {category.name}
                       </p>
-                      
                     </div>
                   </div>
 
@@ -194,17 +193,15 @@ const Nobsa: React.FC = () => {
                       src={
                         category.name === "Kids"
                           ? "https://i.postimg.cc/6QspbnVH/Kids-1-5K.png"
-                          : "https://i.postimg.cc/288m0TsZ/10k-Hombres.png"
+                          : "https://i.postimg.cc/bNB5hRBD/Discapacidad-(1).png"
                       }
                       alt={category.name}
-                      className="w-full max-w-[140px] h-32 object-contain"
+                      className="w-full max-w-[200px] h-32 object-contain"
                     />
-
-                    
                   </div>
 
                   <div className="mt-5">
-                    <span className="inline-block border-2 border-white/50 bg-white/10 px-6 py-1.5 rounded-xl text-sm font-semibold hover:bg-white hover:text-current transition-all shadow-sm">
+                    <span className="inline-block bg-[#2563eb] text-white text-sm border-2 border-[#2563eb] px-6 py-1.5 rounded-lg font-semibold hover:bg-white hover:text-[#2563eb] transition-all shadow-sm">
                       Inscríbete
                     </span>
                   </div>

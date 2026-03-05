@@ -11,7 +11,7 @@ const Footer = () => {
         />
       </div>
       {/* Línea decorativa inferior */}
-      <div className="mt-8 h-[2px] bg-gradient-to-r from-[#fad785] via-[#d8cccc] to-[#3392d0] opacity-70"></div>
+      <div className="h-[2px] bg-gradient-to-r from-[#fad785] via-[#d8cccc] to-[#3392d0] opacity-70"></div>
       {/* Texto opcional */}
       <p className="text-center text-sm mt-4 text-white/80">
         © 2026 Nobsa es Mujer · Todos los derechos reservados
