@@ -10,7 +10,7 @@ export default {
           purple: "#4c3094",
           lavender: "#372773",
           lightPink2: "#3392d0",
-        },
+        }
       },
       fontFamily: {
         feminine: ["Poppins", "sans-serif"], // Reemplaza "Poppins" con tu fuente preferida
