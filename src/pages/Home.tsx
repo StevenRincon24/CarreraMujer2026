@@ -1,7 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Images,
+  Calendar,
+  Clock,
+  Timer,
+  Activity,
+} from "lucide-react";
 import Button from "../components/Button";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1 },
+  },
+};
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -86,7 +112,7 @@ const Home: React.FC = () => {
   }, [galleryImages, selectedEdition]);
 
   useEffect(() => {
-    const targetDate = new Date("2026-03-14T00:00:00").getTime();
+    const targetDate = new Date("2026-03-28T16:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -130,13 +156,12 @@ const Home: React.FC = () => {
             <div className="relative bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
               <div className="flex flex-col items-center">
                 <h2
-                    className="mb-10 text-5xl text-feminine-purple"
-                    style={{ fontFamily: "Betterlett" }}
-                  >
-                    ¡Únete a una experiencia inolvidable!
-                  </h2>
+                  className="mb-10 text-5xl text-feminine-purple"
+                  style={{ fontFamily: "Sugo" }}
+                >
+                  ¡Únete a una experiencia inolvidable!
+                </h2>
                 <div className="w-full max-w-md mx-auto">
-                  
                   <img
                     src="https://i.postimg.cc/jS5z9Q2b/Carrera.jpg"
                     alt="Carrera Nobsa"
@@ -145,11 +170,13 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="text-center mb-10">
-                  
-
                   <p className="text-gray-700 mb-6 text-lg mt-5">
-                    Gracias por ser parte de la III Carrera Atlética de la Mujer
-                    Nobsa 2026 <b>#MujeresQueTransforman</b> <br />
+                    Gracias por ser parte de la{" "}
+                    <b>
+                      III Carrera Atlética de la Mujer Nobsa 2026
+                      #MujeresQueTransforman
+                    </b>{" "}
+                    <br />
                     Sé parte de este evento inspirador que celebra la fuerza,
                     determinación y espíritu comunitario de las mujeres del
                     municipio de Nobsa.
@@ -158,7 +185,7 @@ const Home: React.FC = () => {
 
                 <div className="flex flex-col items-center">
                   <h3>
-                    📅 <strong>Fecha:</strong> 14 de marzo
+                    📅 <strong>Fecha:</strong> 28 de marzo
                   </h3>
                   <p className="mt-2">
                     ⏰ <strong>Hora:</strong> Desde las 4:00 p.m
@@ -168,33 +195,83 @@ const Home: React.FC = () => {
                   </Button>
 
                   {/* CONTADOR */}
-                  <div className="mt-12">
-                    <h3 className="text-2xl text-feminine-purple font-bold mb-6">
+                  {/* CONTADOR ESTILO TARJETAS CON ICONOS */}
+                  <div className="mt-12 w-full">
+                    <h3
+                      className="text-2xl text-feminine-purple font-bold mb-8 text-center"
+                      style={{ fontFamily: "SugoTrial" }}
+                    >
                       🔥 "¡La cuenta regresiva de #MujeresQueTransforman inicia
                       en...!"
                     </h3>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
-                      <div className="bg-gradient-to-br from-[#923094] to-[#4c3094] p-6 rounded-xl shadow-xl">
-                        <p className="text-4xl font-bold">{timeLeft.dias}</p>
-                        <span>Días</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
+                      {/* DÍAS */}
+                      <div className="relative overflow-hidden bg-gradient-to-br from-[#6d28d9] to-[#4c3094] p-6 rounded-2xl shadow-lg flex items-center justify-between">
+                        <div>
+                          <p className="text-5xl font-bold leading-none">
+                            {timeLeft.dias}
+                          </p>
+                          <span className="text-lg font-medium opacity-90">
+                            Días
+                          </span>
+                        </div>
+                        <img
+                          src="https://i.postimg.cc/qBFpq2tZ/Di_as.png"
+                          alt="Dias"
+                          className="absolute -right-2 w-24 h-24 opacity-40 grayscale brightness-200 rotate-[-15deg]"
+                        />
                       </div>
 
-                      <div className="bg-gradient-to-br from-[#e44697] to-[#923094] p-6 rounded-xl shadow-xl">
-                        <p className="text-4xl font-bold">{timeLeft.horas}</p>
-                        <span>Horas</span>
+                      {/* HORAS */}
+                      <div className="relative overflow-hidden bg-gradient-to-br from-[#e44697] to-[#923094] p-6 rounded-2xl shadow-lg flex items-center justify-between">
+                        <div>
+                          <p className="text-5xl font-bold leading-none">
+                            {timeLeft.horas}
+                          </p>
+                          <span className="text-lg font-medium opacity-90">
+                            Horas
+                          </span>
+                        </div>
+                        <img
+                          src="https://i.postimg.cc/wxr9MDt4/Horas.png"
+                          alt="Dias"
+                          className="absolute -right-2 w-24 h-24 opacity-40 grayscale brightness-200 rotate-[-15deg]"
+                        />
                       </div>
 
-                      <div className="bg-gradient-to-br from-[#3392d0] to-[#4c3094] p-6 rounded-xl shadow-xl">
-                        <p className="text-4xl font-bold">{timeLeft.minutos}</p>
-                        <span>Minutos</span>
+                      {/* MINUTOS */}
+                      <div className="relative overflow-hidden bg-gradient-to-br from-[#3392d0] to-[#2563eb] p-6 rounded-2xl shadow-lg flex items-center justify-between">
+                        <div>
+                          <p className="text-5xl font-bold leading-none">
+                            {timeLeft.minutos}
+                          </p>
+                          <span className="text-lg font-medium opacity-90">
+                            Minutos
+                          </span>
+                        </div>
+                        <img
+                          src="https://i.postimg.cc/59rfy8HR/minutos.png"
+                          alt="Dias"
+                          className="absolute -right-2 w-24 h-24 opacity-40 grayscale brightness-200 rotate-[-15deg]"
+                        />
                       </div>
 
-                      <div className="bg-gradient-to-br from-[#f05d77] to-[#e44697] p-6 rounded-xl shadow-xl animate-pulse">
-                        <p className="text-4xl font-bold">
-                          {timeLeft.segundos}
-                        </p>
-                        <span>Segundos</span>
+                      {/* SEGUNDOS */}
+                      <div className="relative overflow-hidden bg-gradient-to-br from-[#f87171] to-[#e44697] p-6 rounded-2xl shadow-lg flex items-center justify-between animate-pulse">
+                        <div>
+                          <p className="text-5xl font-bold leading-none">
+                            {timeLeft.segundos}
+                          </p>
+                          <span className="text-lg font-medium opacity-90">
+                            Segundos
+                          </span>
+                        </div>
+                        <img
+                          src="https://i.postimg.cc/QNzjCcBf/Segundos.png"
+                          alt="Dias"
+                          className="absolute -right-2 w-24 h-24 opacity-40 grayscale brightness-200 rotate-[-15deg]"
+                        />
                       </div>
                     </div>
                   </div>
@@ -229,7 +306,7 @@ const Home: React.FC = () => {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-feminine-lavender/20 p-6 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg  p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">🏁 Reglas Generales</h3>
                 <ul className="list-none pl-4 mt-2 text-gray-700">
                   <li>🏃‍♂️ La carrera termina cuando el atleta cruza la meta.</li>
@@ -244,7 +321,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-feminine-purple/20 p-6 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg  p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">⚠️ Reglas de Penalización</h3>
                 <ul className="list-none pl-4 mt-2 text-gray-700">
                   <li>
@@ -258,7 +335,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-feminine-pink/20 p-6 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg  p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">
                   🚨 Reglas de Descalificación
                 </h3>
@@ -278,7 +355,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-feminine-lightPink2/20 p-6 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg  p-6 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold">🏃 Reglas de Competencia</h3>
                 <ul className="list-none pl-4 mt-2 text-gray-700">
                   <li>

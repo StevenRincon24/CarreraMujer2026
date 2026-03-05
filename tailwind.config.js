@@ -13,7 +13,7 @@ export default {
         }
       },
       fontFamily: {
-        feminine: ["Poppins", "sans-serif"], // Reemplaza "Poppins" con tu fuente preferida
+        feminine: ["Poppins", "sans-serif"],
       },
       animation: {
         "text-reveal":
