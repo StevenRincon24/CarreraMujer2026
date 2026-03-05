@@ -127,7 +127,7 @@ const Home: React.FC = () => {
             <div className="absolute -left-20 w-64 h-64 bg-feminine-pink/10 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-feminine-purple/10 rounded-full blur-3xl"></div>
 
-            <div className="relative  p-8  max-w-4xl mx-auto">
+            <div className="relative bg-gradient-to-br from-white/70 via-[#fbe4f5]/60 to-white/70 backdrop-blur-lg rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
               <div className="flex flex-col items-center">
                 <h2
                     className="mb-10 text-5xl text-feminine-purple"
@@ -135,8 +135,8 @@ const Home: React.FC = () => {
                   >
                     ¡Únete a una experiencia inolvidable!
                   </h2>
-
                 <div className="w-full max-w-md mx-auto">
+                  
                   <img
                     src="https://i.postimg.cc/jS5z9Q2b/Carrera.jpg"
                     alt="Carrera Nobsa"
@@ -146,6 +146,7 @@ const Home: React.FC = () => {
 
                 <div className="text-center mb-10">
                   
+
                   <p className="text-gray-700 mb-6 text-lg mt-5">
                     Gracias por ser parte de la III Carrera Atlética de la Mujer
                     Nobsa 2026 <b>#MujeresQueTransforman</b> <br />
