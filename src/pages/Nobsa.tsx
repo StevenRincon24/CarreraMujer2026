@@ -36,12 +36,12 @@ const categories = [
     genero: "Ambos generos",
     link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
   },
-  {
-    name: "Discapacidad",
-    km: "1.5 Kilómetros",
-    genero: "Ambos generos",
-    link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
-  },
+  // {
+  //   name: "Discapacidad",
+  //   km: "1.5 Kilómetros",
+  //   genero: "Ambos generos",
+  //   link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
+  // },
 ];
 
 const Nobsa: React.FC = () => {
