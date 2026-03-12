@@ -163,7 +163,7 @@ const Home: React.FC = () => {
                 </h2>
                 <div className="w-full max-w-md mx-auto">
                   <img
-                    src="https://i.postimg.cc/jS5z9Q2b/Carrera.jpg"
+                    src="https://i.postimg.cc/qB5QfPMS/Home-Pagina-Bienvenida-jpg.jpg"
                     alt="Carrera Nobsa"
                     className="w-full object-contain rounded-2xl shadow-lg mb-8"
                   />
