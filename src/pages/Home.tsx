@@ -44,18 +44,8 @@ const Home: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const galleryImages: Record<number, string[]> = {
     1: [
-      "https://i.postimg.cc/SKtQsVrY/12.jpg",
-      "https://i.postimg.cc/pXkZpngJ/Foto1.jpg",
-      "https://i.postimg.cc/hPKsD038/Foto10.jpg",
-      "https://i.postimg.cc/kX7sJyh6/Foto11.jpg",
-      "https://i.postimg.cc/TYQ9pWZq/Foto2.jpg",
-      "https://i.postimg.cc/xTgRcbWM/Foto3.jpg",
-      "https://i.postimg.cc/GhbKLjSX/Foto4.jpg",
-      "https://i.postimg.cc/SNmdSGtZ/Foto5.jpg",
-      "https://i.postimg.cc/KvmfG5sf/Foto6.jpg",
-      "https://i.postimg.cc/fTMCzvgc/Foto7.jpg",
-      "https://i.postimg.cc/RVvdSTbL/Foto8.jpg",
-      "https://i.postimg.cc/xT95fPFL/Foto9.jpg",
+      "https://res.cloudinary.com/ddd0oky5c/video/upload/v1773326590/video_mujer_2024_yvcmtz.mp4",
+      
     ],
     2: [
       "https://i.postimg.cc/SKtQsVrY/12.jpg",
@@ -72,6 +62,14 @@ const Home: React.FC = () => {
       "https://i.postimg.cc/xT95fPFL/Foto9.jpg",
     ],
   };
+
+  const currentMedia =
+    selectedEdition !== null
+      ? galleryImages[selectedEdition][currentIndex]
+      : null;
+
+  const isVideo =
+    currentMedia?.endsWith(".mp4") || currentMedia?.endsWith(".webm");
 
   const openGallery = (edition: number) => {
     setSelectedEdition(edition);
@@ -281,7 +279,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Premiación */}
-          <div className="relative  p-8 md:p-12 max-w-4xl mx-auto mt-5">
+          <div className=" relative  p-8 md:p-12 max-w-4xl mx-auto mt-5">
             <div className="text-center">
               <h2
                 className="text-4xl text-feminine-purple"
@@ -402,21 +400,23 @@ const Home: React.FC = () => {
                 onClick={() => openGallery(1)}
                 className="relative cursor-pointer group overflow-hidden rounded-2xl shadow-xl"
               >
+                {" "}
                 <img
                   src="https://i.postimg.cc/qBDVyzV0/Carrera1.jpg"
                   alt="I Carrera"
                   className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
-
+                />{" "}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-center text-center p-4">
+                  {" "}
                   <Images
                     size={40}
                     className="text-white mb-3 animate-bounce"
-                  />
+                  />{" "}
                   <h3 className="text-white text-2xl font-bold">
-                    Ver recuerdos
-                  </h3>
-                </div>
+                    {" "}
+                    Ver recuerdos{" "}
+                  </h3>{" "}
+                </div>{" "}
               </div>
 
               {/* II Edición */}
@@ -469,11 +469,20 @@ const Home: React.FC = () => {
                 </button>
 
                 <div className="relative bg-black rounded-2xl shadow-2xl flex items-center justify-center h-[80vh]">
-                  <img
-                    src={galleryImages[selectedEdition][currentIndex]}
-                    alt="Slide"
-                    className="max-h-full max-w-full object-contain transition-opacity duration-700"
-                  />
+                  {isVideo ? (
+                    <video
+                      src={currentMedia!}
+                      controls
+                      autoPlay
+                      className="max-h-full max-w-full object-contain rounded-xl"
+                    />
+                  ) : (
+                    <img
+                      src={currentMedia!}
+                      alt="Slide"
+                      className="max-h-full max-w-full object-contain transition-opacity duration-700"
+                    />
+                  )}
 
                   <button
                     onClick={prevSlide}
