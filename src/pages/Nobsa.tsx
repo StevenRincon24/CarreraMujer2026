@@ -140,7 +140,7 @@ const Nobsa: React.FC = () => {
                 >
                   <div className="flex flex-col items-center gap-4">
                     <img
-                      src="https://i.postimg.cc/288m0TsZ/10k-Hombres.png"
+                      src="https://i.postimg.cc/Xq5fr6Py/5K-Hombres-Recreativo.png"
                       alt="Hombres 10K"
                       /* Reducimos el tamaño de la imagen interna */
                       className="w-full max-w-[150px] object-contain"
