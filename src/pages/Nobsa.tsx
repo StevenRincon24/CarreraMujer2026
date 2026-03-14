@@ -34,7 +34,7 @@ const categories = [
     name: "Kids",
     km: "1.5 Kilómetros",
     genero: "Ambos generos",
-    link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
+    link: "https://forms.gle/n2pjKYKtspVpqY4X8",
   },
   // {
   //   name: "Discapacidad",
