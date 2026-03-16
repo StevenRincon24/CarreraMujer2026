@@ -31,7 +31,7 @@ const categories = [
     km: "10 Kilómetros",
     genero: "Masculino",
     link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
-    cerrado: false,
+    cerrado: true,
 
     // Ya no necesitamos 'img' circular aquí, usaremos la imagen de la tarjeta
   },
@@ -57,47 +57,45 @@ const Nobsa: React.FC = () => {
 
   // Componente reutilizable para el Círculo (SOLO PARA MUJERES AHORA)
   const CircularCategory = ({ cat }: { cat: (typeof categories)[0] }) => (
-  <div className="flex flex-col items-center relative">
-    
-    {cat.cerrado ? (
-      <div className="group relative block cursor-not-allowed">
-        <div className="relative w-48 h-48 md:w-56 md:h-56">
-          <img
-            src={cat.img}
-            alt={cat.name}
-            className="w-full h-full object-contain opacity-60"
-          />
+    <div className="flex flex-col items-center relative">
+      {cat.cerrado ? (
+        <div className="group relative block cursor-not-allowed">
+          <div className="relative w-48 h-48 md:w-56 md:h-56">
+            <img
+              src={cat.img}
+              alt={cat.name}
+              className="w-full h-full object-contain opacity-60"
+            />
 
-          <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
-            Inscripciones cerradas
-          </span>
-        </div>
-      </div>
-    ) : (
-      <a
-        href={cat.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative block"
-      >
-        <div className="relative w-48 h-48 md:w-56 md:h-56 transition-transform duration-300 group-hover:scale-110">
-          <img
-            src={cat.img}
-            alt={cat.name}
-            className="w-full h-full object-contain"
-          />
-
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 rounded-full">
-            <span className="text-white font-bold text-xl drop-shadow-md text-center px-2">
-              Inscríbete
+            <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+              Inscripciones cerradas
             </span>
           </div>
         </div>
-      </a>
-    )}
+      ) : (
+        <a
+          href={cat.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block"
+        >
+          <div className="relative w-48 h-48 md:w-56 md:h-56 transition-transform duration-300 group-hover:scale-110">
+            <img
+              src={cat.img}
+              alt={cat.name}
+              className="w-full h-full object-contain"
+            />
 
-  </div>
-);
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 rounded-full">
+              <span className="text-white font-bold text-xl drop-shadow-md text-center px-2">
+                Inscríbete
+              </span>
+            </div>
+          </div>
+        </a>
+      )}
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fad785] via-[#e44697] to-[#4c3094] py-12">
