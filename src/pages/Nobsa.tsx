@@ -30,10 +30,7 @@ const categories = [
     name: "Hombres recreativo",
     km: "10 Kilómetros",
     genero: "Masculino",
-    link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
     cerrado: true,
-
-    // Ya no necesitamos 'img' circular aquí, usaremos la imagen de la tarjeta
   },
   {
     name: "Kids",
@@ -173,8 +170,8 @@ const Nobsa: React.FC = () => {
                   </div>
 
                   <div className="mt-5">
-                    <span className="inline-block bg-[#2563eb] text-white text-sm border-2 border-[#2563eb] px-6 py-1.5 rounded-lg font-semibold hover:bg-white hover:text-[#2563eb] transition-all shadow-sm">
-                      Inscríbete
+                    <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+                      Inscripciones cerradas
                     </span>
                   </div>
                 </a>
