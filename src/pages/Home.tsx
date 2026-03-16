@@ -45,7 +45,6 @@ const Home: React.FC = () => {
   const galleryImages: Record<number, string[]> = {
     1: [
       "https://res.cloudinary.com/ddd0oky5c/video/upload/v1773326590/video_mujer_2024_yvcmtz.mp4",
-      
     ],
     2: [
       "https://i.postimg.cc/SKtQsVrY/12.jpg",
@@ -161,11 +160,13 @@ const Home: React.FC = () => {
                 </h2>
                 <div className="w-full max-w-md mx-auto">
                   <img
-                    src="https://i.postimg.cc/qB5QfPMS/Home-Pagina-Bienvenida-jpg.jpg"
+                    src="https://i.postimg.cc/Dz3fDDqg/Limite.jpg"
                     alt="Carrera Nobsa"
                     className="w-full object-contain rounded-2xl shadow-lg mb-8"
                   />
                 </div>
+
+                
 
                 <div className="text-center mb-10">
                   <p className="text-gray-700 mb-6 text-lg mt-5">
