@@ -10,24 +10,29 @@ const categories = [
     genero: "Femenino",
     link: "https://forms.gle/vpkFTUnpknL4eEYd8",
     img: "https://i.postimg.cc/25yWQ4wC/Iconos_03.png",
+    cerrado: true,
   },
   {
     name: "Femenino 5K",
     genero: "Femenino",
     link: "https://forms.gle/8WpvAcZb9x7chq3s8",
     img: "https://i.postimg.cc/8CcvRhHs/Iconos_04.png",
+    cerrado: true,
   },
   {
     name: "Femenino 10K",
     genero: "Femenino",
     link: "https://forms.gle/JFT3c6FqdoN6ft6q9",
     img: "https://i.postimg.cc/zfvhCnjV/Iconos_05.png",
+    cerrado: true,
   },
   {
     name: "Hombres recreativo",
-    km: "10 Kilómetros", // Añadimos los KM aquí
+    km: "10 Kilómetros",
     genero: "Masculino",
     link: "https://forms.gle/3LKZtFmmBhvrqs9i6",
+    cerrado: false,
+
     // Ya no necesitamos 'img' circular aquí, usaremos la imagen de la tarjeta
   },
   {
@@ -52,7 +57,23 @@ const Nobsa: React.FC = () => {
 
   // Componente reutilizable para el Círculo (SOLO PARA MUJERES AHORA)
   const CircularCategory = ({ cat }: { cat: (typeof categories)[0] }) => (
-    <div className="flex flex-col items-center">
+  <div className="flex flex-col items-center relative">
+    
+    {cat.cerrado ? (
+      <div className="group relative block cursor-not-allowed">
+        <div className="relative w-48 h-48 md:w-56 md:h-56">
+          <img
+            src={cat.img}
+            alt={cat.name}
+            className="w-full h-full object-contain opacity-60"
+          />
+
+          <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+            Inscripciones cerradas
+          </span>
+        </div>
+      </div>
+    ) : (
       <a
         href={cat.link}
         target="_blank"
@@ -73,9 +94,10 @@ const Nobsa: React.FC = () => {
           </div>
         </div>
       </a>
-      {/* Las mujeres no tienen 'km' en los datos, si quieres mostrarlo, añádelo a los datos */}
-    </div>
-  );
+    )}
+
+  </div>
+);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fad785] via-[#e44697] to-[#4c3094] py-12">
@@ -200,10 +222,9 @@ const Nobsa: React.FC = () => {
                   </div>
 
                   <div className="mt-5">
-                   
-                      <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
-                        Inscripciones cerradas
-                      </span>
+                    <span className="absolute top-1/2 left-0 w-full bg-blue-500 text-white text-xs font-bold py-1 transform -rotate-12 -translate-y-1/2 text-center">
+                      Inscripciones cerradas
+                    </span>
                   </div>
                 </a>
               ))}
